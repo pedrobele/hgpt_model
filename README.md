@@ -53,7 +53,8 @@ Locate the function hgpt(2).m and the binary grid files (or set the coeffiles va
 
 Python code to call the hgpt function 
 ```Python
-from hgpt import hgpt
+from hgpt import hgpt # for version 1
+from hgpt2 import hgpt2 # for version 2
 y0 = 38.5519  # Latitude, degrees
 x0 = -9.0147  # Longitude, degrees
 z0 = 25       # Orthometric height, m
