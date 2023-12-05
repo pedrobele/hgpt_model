@@ -16,7 +16,7 @@ The same code is available in three programming languages, Fortran, Matlab and P
 **To download the binary grid files for HGPT use the [release section (v1.0)](https://github.com/pjmateus/hgpt_model/releases)**\
 **To download the binary grid files for HGPT2 use the [release section (v2.0)](https://github.com/pjmateus/hgpt_model/releases)**
 
-Simple Fortran code to call the hgpt subroutine (in file hgpt.f90) 
+Simple Fortran code to call the hgpt(2) subroutine (in file hgpt(2).f90) 
 ```Fortran
 program call_hgpt_model
 	implicit None
@@ -37,16 +37,17 @@ write(*,*) P, T, RH, Tm, ZHD, ZWD, PWV
 ```
 Save this file with the name call_hgpt_model.f90 and compile with "gfortran hgpt.f90 call_hgpt_model.f90 -o call_hgpt_model.exe". Module constructs can also be easily implemented.
 
-Matlab code to call the hgpt function [![View hgpt_model on File Exchange](https://www.mathworks.com/matlabcentral/images/matlab-file-exchange.svg)](https://www.mathworks.com/matlabcentral/fileexchange/74247-hgpt_model)
+Matlab code to call the hgpt(2) function [![View hgpt_model on File Exchange](https://www.mathworks.com/matlabcentral/images/matlab-file-exchange.svg)](https://www.mathworks.com/matlabcentral/fileexchange/74247-hgpt_model)
 ```Matlab
 y0 = 38.5519;  % Latitude, degrees
 x0 = -9.0147;  % Longitude, degrees
 z0 = 25;       % Orthometric height, m
 dt = 58119.5;  % MJD
+% Version 1
 [P, T, Tm, ZHD] = hgpt(dt, x0, y0, z0, 'orth')
 
 % Version 2
-[P, T, RH, Tm, ZHD, ZWD, PWV] = hgpt(dt, x0, y0, z0, 'orth')
+[P, T, RH, Tm, ZHD, ZWD, PWV] = hgpt2(dt, x0, y0, z0, 'orth')
 ```
 Locate the function hgpt(2).m and the binary grid files (or set the coeffiles variable in hgpt(2).m file) and run this code.
 
@@ -57,10 +58,11 @@ y0 = 38.5519  # Latitude, degrees
 x0 = -9.0147  # Longitude, degrees
 z0 = 25       # Orthometric height, m
 dt = 58119.5  # MJD
+% Version 1
 P, T, Tm, ZHD = hgpt(dt, x0, y0, z0, 'orth')
 
 # Version 2
-P, T, RH, Tm, ZHD, ZWD, PWV = hgpt(dt, x0, y0, z0, 'orth')
+P, T, RH, Tm, ZHD, ZWD, PWV = hgpt2(dt, x0, y0, z0, 'orth')
 ```
 Locate the function hgpt(2).py and the binary grid files (or set the coeffiles variable in hgpt(2).py file) and run this code.
 Requirements:
@@ -69,7 +71,7 @@ You need Python 3.2 or later and julian 0.14. You can install julian like this:
 ```
 $ pip install julian
 ```
-**If you have any questions do not hesitate to contact me by email pjmateus@fc.ul.pt**
+**If you have any questions, do not hesitate to contact me by email pjmateus@fc.ul.pt**
 
 Don't forget to cite:
 
